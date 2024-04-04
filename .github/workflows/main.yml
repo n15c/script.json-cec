@@ -1,4 +1,4 @@
-name: Create Archive
+name: Create Release
 on:
   release:
     types: [published]
@@ -6,16 +6,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
-    - name: Archive Release
-      uses: thedoctor0/zip-release@0.7.5
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Create Zip File
+      run: zip -r script.json-cec.zip .
+
+    - name: Upload Release Asset
+      uses: actions/upload-release-asset@v1
       with:
-        type: 'zip'
-        filename: 'script.json-cec.zip'
-        exclusions: '*.git*'
-        
-    - name: Upload Release
-      uses: ncipollo/release-action@v1.12.0
-      with:
-        artifacts: "script.json-cec.zip"
-        token: ${{ secrets.GITHUB_TOKEN }}
+        upload_url: ${{ github.event.release.upload_url }}
+        asset_path: ./script.json-cec.zip
+        asset_name: script.json-cec.zip
+        asset_content_type: application/zip
