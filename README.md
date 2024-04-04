@@ -3,7 +3,7 @@
 
 Kodi addon allowing HDMI-CEC control via Kodi's JSON-RPC.
 
-Requires at least XBMC 18 and currently supports latest version Kodi 19 Krypton.
+Requires at least Kodi 19 Matrix and currently supports latest version Kodi 20 Nexus.
 
 
 ## Installation
