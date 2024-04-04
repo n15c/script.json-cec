@@ -3,7 +3,7 @@
 
 Kodi addon allowing HDMI-CEC control via Kodi's JSON-RPC.
 
-Requires at least XBMC v13 Gotham and currently supports latest version [Kodi v17 Krypton](https://kodi.tv/kodi-v17-1-krypton).
+Requires at least XBMC 18 and currently supports latest version Kodi 19 Krypton.
 
 
 ## Installation
