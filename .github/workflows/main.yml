@@ -1,5 +1,7 @@
 name: Create Archive
-on: [push]
+on:
+  release:
+    types: [published]
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -9,5 +11,11 @@ jobs:
       uses: thedoctor0/zip-release@0.7.5
       with:
         type: 'zip'
-        filename: 'script.json-cec'
+        filename: 'script.json-cec.zip'
         exclusions: '*.git*'
+        
+    - name: Upload Release
+      uses: ncipollo/release-action@v1.12.0
+      with:
+        artifacts: "script.json-cec.zip"
+        token: ${{ secrets.GITHUB_TOKEN }}
